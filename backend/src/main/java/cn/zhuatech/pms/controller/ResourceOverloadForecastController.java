@@ -6,12 +6,21 @@ import cn.zhuatech.pms.service.ResourceOverloadForecastService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/pms/insights")
 public class ResourceOverloadForecastController {
     private final ResourceOverloadForecastService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ResourceOverloadForecastController(ResourceOverloadForecastService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/resource-overload")
     public ApiResponse<ResourceOverloadForecastService.Result> forecast(
         @Valid @RequestBody ResourceOverloadForecastService.Request request) {

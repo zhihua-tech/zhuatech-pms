@@ -19,12 +19,24 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 public final class PmsDto {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private PmsDto() {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ProjectView(Long id, String projectCode, String projectName, String customer,
                               String manager, LocalDate plannedStart, LocalDate plannedEnd,
                               BigDecimal budget, Integer progress, String status, String health) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public static ProjectView from(Project project) {
             return new ProjectView(project.getId(), project.getProjectCode(), project.getProjectName(),
                     project.getCustomer(), project.getManager(), project.getPlannedStart(),
@@ -33,9 +45,15 @@ public final class PmsDto {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record TaskView(Long id, String taskNo, String projectCode, String title, String assignee,
                            String priority, LocalDate dueDate, String status, Integer estimatedHours,
                            Integer loggedHours) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public static TaskView from(ProjectTask task) {
             return new TaskView(task.getId(), task.getTaskNo(), task.getProjectCode(), task.getTitle(),
                     task.getAssignee(), task.getPriority(), task.getDueDate(), task.getStatus(),
@@ -43,8 +61,14 @@ public final class PmsDto {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record MilestoneView(Long id, String milestoneNo, String projectCode, String milestoneName,
                                 String owner, LocalDate plannedDate, Integer completionRate, String status) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public static MilestoneView from(Milestone milestone) {
             return new MilestoneView(milestone.getId(), milestone.getMilestoneNo(), milestone.getProjectCode(),
                     milestone.getMilestoneName(), milestone.getOwner(), milestone.getPlannedDate(),
@@ -52,8 +76,14 @@ public final class PmsDto {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record RiskView(Long id, String riskNo, String projectCode, String title, String owner,
                            String probability, String impact, String mitigation, String status) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public static RiskView from(ProjectRisk risk) {
             return new RiskView(risk.getId(), risk.getRiskNo(), risk.getProjectCode(), risk.getTitle(),
                     risk.getOwner(), risk.getProbability(), risk.getImpact(), risk.getMitigation(),
@@ -61,8 +91,14 @@ public final class PmsDto {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record TimesheetView(Long id, String sheetNo, String projectCode, String contributor,
                                 LocalDate workDate, BigDecimal hours, String workItem, String approvalStatus) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public static TimesheetView from(Timesheet sheet) {
             return new TimesheetView(sheet.getId(), sheet.getSheetNo(), sheet.getProjectCode(),
                     sheet.getContributor(), sheet.getWorkDate(), sheet.getHours(), sheet.getWorkItem(),
@@ -70,11 +106,17 @@ public final class PmsDto {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Dashboard(long projectCount, long atRiskProjects, long openTasks, long overdueTasks,
                             long upcomingMilestones, long highImpactRisks, BigDecimal portfolioBudget,
                             List<ProjectView> activeProjects, List<TaskView> urgentTasks,
                             List<MilestoneView> upcomingMilestoneList) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record CreateProjectRequest(
             @NotBlank String projectCode,
             @NotBlank @Size(max = 120) String projectName,
@@ -84,6 +126,9 @@ public final class PmsDto {
             @NotNull @FutureOrPresent LocalDate plannedEnd,
             @NotNull @PositiveOrZero BigDecimal budget) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record CreateTaskRequest(
             @NotBlank String projectCode,
             @NotBlank @Size(max = 160) String title,
@@ -92,6 +137,9 @@ public final class PmsDto {
             @NotNull @FutureOrPresent LocalDate dueDate,
             @NotNull @Positive @Max(999) Integer estimatedHours) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record SubmitTimesheetRequest(
             @NotBlank String projectCode,
             @NotBlank String contributor,

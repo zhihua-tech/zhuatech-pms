@@ -10,8 +10,14 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ResourceOverloadForecastService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(
         @DecimalMin("0.01") BigDecimal availableHours,
         @DecimalMin("0.0") BigDecimal plannedHours,
@@ -21,9 +27,15 @@ public class ResourceOverloadForecastService {
         @Min(0) int skillGapCount
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String status, BigDecimal loadRate, BigDecimal shortageHours,
                          BigDecimal suggestedOvertimeHours, BigDecimal reallocationHours, List<String> actions) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result forecast(Request request) {
         BigDecimal loadRate = request.plannedHours().divide(request.availableHours(), 4, RoundingMode.HALF_UP)
             .multiply(BigDecimal.valueOf(100)).setScale(1, RoundingMode.HALF_UP);

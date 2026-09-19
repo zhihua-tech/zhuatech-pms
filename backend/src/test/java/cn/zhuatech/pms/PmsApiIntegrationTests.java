@@ -16,11 +16,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 class PmsApiIntegrationTests {
     @Autowired MockMvc mvc;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private String login(String username, String password) throws Exception {
         String json = mvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -32,6 +38,9 @@ class PmsApiIntegrationTests {
         return matcher.group(1);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void adminCanReadPortfolioData() throws Exception {
         String token = login("admin", "admin123");
@@ -44,6 +53,9 @@ class PmsApiIntegrationTests {
                 .andExpect(jsonPath("$.data.length()").value(4));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void projectManagerCanCreateAndAdvanceTask() throws Exception {
         String token = login("manager", "manager123");
@@ -62,6 +74,9 @@ class PmsApiIntegrationTests {
                 .andExpect(jsonPath("$.data.status").value("进行中"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void memberCanSubmitTimesheet() throws Exception {
         String token = login("member", "member123");
@@ -73,11 +88,17 @@ class PmsApiIntegrationTests {
                 .andExpect(jsonPath("$.data.approvalStatus").value("待审批"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void anonymousRequestIsDenied() throws Exception {
         mvc.perform(get("/api/pms/projects")).andExpect(status().isForbidden());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void managerCanEvaluateDeliveryConfidence() throws Exception {
         String token = login("manager", "manager123");

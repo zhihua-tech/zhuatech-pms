@@ -5,9 +5,15 @@ import cn.zhuatech.pms.service.AiProjectCopilotService;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import static org.assertj.core.api.Assertions.assertThat;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class AiProjectCopilotServiceTests {
     private final AiProjectCopilotService service = new AiProjectCopilotService(
         new OpenAiCompatibleGateway("local", "https://api.deepseek.com", "deepseek-chat", ""));
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void summarizesCriticalProject() {
         var result = service.summarize(new AiProjectCopilotService.Request("核心系统升级", new BigDecimal("40"),
             new BigDecimal("70"), new BigDecimal("85"), new BigDecimal("60"), 4, 5, new BigDecimal("125")));

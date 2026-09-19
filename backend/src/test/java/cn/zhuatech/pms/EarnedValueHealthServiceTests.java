@@ -8,9 +8,15 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class EarnedValueHealthServiceTests {
     private final EarnedValueHealthService service = new EarnedValueHealthService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void identifiesCriticalScheduleAndCostPerformance() {
         var result = service.evaluate(new EarnedValueHealthService.Request(
@@ -22,6 +28,9 @@ class EarnedValueHealthServiceTests {
         assertEquals("CRITICAL", result.status());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void recognizesHealthyProject() {
         var result = service.evaluate(new EarnedValueHealthService.Request(

@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Entity
 @Table(name = "pms_project_task")
 public class ProjectTask extends BaseEntity {
@@ -19,8 +22,14 @@ public class ProjectTask extends BaseEntity {
     @Column(nullable = false) private Integer estimatedHours;
     @Column(nullable = false) private Integer loggedHours;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     protected ProjectTask() {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ProjectTask(String taskNo, String projectCode, String title, String assignee, String priority,
                        LocalDate dueDate, String status, Integer estimatedHours, Integer loggedHours) {
         this.taskNo = taskNo;
@@ -34,6 +43,9 @@ public class ProjectTask extends BaseEntity {
         this.loggedHours = loggedHours;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public void advance() {
         this.status = switch (status) {
             case "待开始" -> "进行中";
@@ -43,13 +55,40 @@ public class ProjectTask extends BaseEntity {
         };
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getTaskNo() { return taskNo; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getProjectCode() { return projectCode; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getTitle() { return title; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getAssignee() { return assignee; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getPriority() { return priority; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public LocalDate getDueDate() { return dueDate; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getStatus() { return status; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Integer getEstimatedHours() { return estimatedHours; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Integer getLoggedHours() { return loggedHours; }
 }

@@ -27,6 +27,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 @Transactional(readOnly = true)
 public class PmsService {
@@ -36,6 +39,9 @@ public class PmsService {
     private final ProjectRiskRepository risks;
     private final TimesheetRepository timesheets;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public PmsService(ProjectRepository projects, ProjectTaskRepository tasks,
                       MilestoneRepository milestones, ProjectRiskRepository risks,
                       TimesheetRepository timesheets) {
@@ -46,6 +52,9 @@ public class PmsService {
         this.timesheets = timesheets;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Dashboard dashboard() {
         BigDecimal budget = projects.findAll().stream().map(Project::getBudget)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -64,26 +73,44 @@ public class PmsService {
         );
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<ProjectView> projects() {
         return projects.findAllByOrderByPlannedEndAsc().stream().map(ProjectView::from).toList();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<TaskView> tasks() {
         return tasks.findAllByOrderByDueDateAsc().stream().map(TaskView::from).toList();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<MilestoneView> milestones() {
         return milestones.findAllByOrderByPlannedDateAsc().stream().map(MilestoneView::from).toList();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<RiskView> risks() {
         return risks.findAllByOrderByIdDesc().stream().map(RiskView::from).toList();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<TimesheetView> timesheets() {
         return timesheets.findAllByOrderByWorkDateDesc().stream().map(TimesheetView::from).toList();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public ProjectView createProject(CreateProjectRequest request) {
         if (projects.findByProjectCode(request.projectCode()).isPresent()) {
@@ -98,6 +125,9 @@ public class PmsService {
         return ProjectView.from(projects.save(project));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public TaskView createTask(CreateTaskRequest request) {
         if (projects.findByProjectCode(request.projectCode()).isEmpty()) {
@@ -109,6 +139,9 @@ public class PmsService {
         return TaskView.from(tasks.save(task));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public TaskView advanceTask(Long id) {
         ProjectTask task = tasks.findById(id).orElseThrow(() -> new BusinessException("项目任务不存在"));
@@ -119,6 +152,9 @@ public class PmsService {
         return TaskView.from(task);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public TimesheetView submitTimesheet(SubmitTimesheetRequest request) {
         if (projects.findByProjectCode(request.projectCode()).isEmpty()) {

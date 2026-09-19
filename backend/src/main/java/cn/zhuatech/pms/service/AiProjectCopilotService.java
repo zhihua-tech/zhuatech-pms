@@ -11,11 +11,20 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class AiProjectCopilotService {
     private final OpenAiCompatibleGateway gateway;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public AiProjectCopilotService(OpenAiCompatibleGateway gateway) { this.gateway = gateway; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result summarize(Request request) {
         int risk = 5;
         List<String> actions = new ArrayList<>();
@@ -42,6 +51,9 @@ public class AiProjectCopilotService {
             enhanced.isPresent() ? "EXTERNAL_MODEL" : "LOCAL_RULES", metadata.provider(), metadata.model());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String projectName,
                           @DecimalMin("0") @DecimalMax("100") BigDecimal actualProgress,
                           @DecimalMin("0") @DecimalMax("100") BigDecimal plannedProgress,
@@ -49,6 +61,9 @@ public class AiProjectCopilotService {
                           @DecimalMin("0") BigDecimal elapsedScheduleRate,
                           @Min(0) int openHighRisks, @Min(0) int blockedTasks,
                           @DecimalMin("0") BigDecimal teamUtilization) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String status, int riskScore, BigDecimal scheduleGap, String executiveBrief,
                          List<String> priorityActions, String aiMode, String provider, String model) {}
 }

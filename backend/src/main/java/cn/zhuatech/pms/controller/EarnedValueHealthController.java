@@ -9,15 +9,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/pms/insights")
 public class EarnedValueHealthController {
     private final EarnedValueHealthService service;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public EarnedValueHealthController(EarnedValueHealthService service) {
         this.service = service;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/earned-value-health")
     public ApiResponse<EarnedValueHealthService.Result> evaluate(
         @Valid @RequestBody EarnedValueHealthService.Request request) {

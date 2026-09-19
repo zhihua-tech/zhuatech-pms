@@ -11,8 +11,14 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class EarnedValueHealthService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         BigDecimal scheduleIndex = request.earnedValue()
             .divide(request.plannedValue(), 4, RoundingMode.HALF_UP);
@@ -35,6 +41,9 @@ public class EarnedValueHealthService {
             estimateAtCompletion, forecastVariance, status, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String projectCode,
                           @DecimalMin("0.01") BigDecimal plannedValue,
                           @DecimalMin("0.01") BigDecimal earnedValue,
@@ -42,6 +51,9 @@ public class EarnedValueHealthService {
                           @DecimalMin("0.01") BigDecimal budgetAtCompletion,
                           @Min(0) int remainingWeeks) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String projectCode, BigDecimal schedulePerformanceIndex,
                          BigDecimal costPerformanceIndex, BigDecimal estimateAtCompletion,
                          BigDecimal forecastBudgetVariance, String status,

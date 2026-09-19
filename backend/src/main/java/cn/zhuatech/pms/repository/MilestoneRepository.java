@@ -4,7 +4,16 @@ import cn.zhuatech.pms.model.Milestone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.time.LocalDate;
 import java.util.List;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 public interface MilestoneRepository extends JpaRepository<Milestone, Long> {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     long countByPlannedDateLessThanEqualAndStatusNot(LocalDate date, String status);
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     List<Milestone> findAllByOrderByPlannedDateAsc();
 }

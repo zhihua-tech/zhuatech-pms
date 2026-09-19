@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Entity
 @Table(name = "pms_milestone")
 public class Milestone extends BaseEntity {
@@ -17,8 +20,14 @@ public class Milestone extends BaseEntity {
     @Column(nullable = false) private Integer completionRate;
     @Column(nullable = false, length = 20) private String status;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     protected Milestone() {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Milestone(String milestoneNo, String projectCode, String milestoneName, String owner,
                      LocalDate plannedDate, Integer completionRate, String status) {
         this.milestoneNo = milestoneNo;
@@ -30,11 +39,32 @@ public class Milestone extends BaseEntity {
         this.status = status;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getMilestoneNo() { return milestoneNo; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getProjectCode() { return projectCode; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getMilestoneName() { return milestoneName; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getOwner() { return owner; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public LocalDate getPlannedDate() { return plannedDate; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Integer getCompletionRate() { return completionRate; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getStatus() { return status; }
 }

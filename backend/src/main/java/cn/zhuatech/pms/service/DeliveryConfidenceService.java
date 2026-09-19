@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class DeliveryConfidenceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         double progressGap = Math.max(0, request.plannedProgress() - request.actualProgress());
         double costPressure = Math.max(0, request.budgetUsedPercent() - request.actualProgress());
@@ -26,11 +32,17 @@ public class DeliveryConfidenceService {
         return new Result(request.projectCode(), score, confidence, score < 45, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String projectCode,
                           @DecimalMin("0") @DecimalMax("100") double plannedProgress,
                           @DecimalMin("0") @DecimalMax("100") double actualProgress,
                           @Min(0) int openCriticalTasks, @Min(0) int milestoneDelayDays,
                           @DecimalMin("0") @DecimalMax("100") double budgetUsedPercent) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String projectCode, int confidenceScore, String confidence,
                          boolean escalationRequired, List<String> actions) {}
 }
