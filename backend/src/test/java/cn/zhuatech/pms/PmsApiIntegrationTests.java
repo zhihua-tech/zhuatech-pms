@@ -93,7 +93,7 @@ class PmsApiIntegrationTests {
      */
     @Test
     void anonymousRequestIsDenied() throws Exception {
-        mvc.perform(get("/api/pms/projects")).andExpect(status().isForbidden());
+        mvc.perform(get("/api/pms/projects")).andExpect(status().isUnauthorized());
     }
 
     /**
