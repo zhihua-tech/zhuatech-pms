@@ -94,6 +94,8 @@ zhuatech-pms/
 ```bash
 cp .env.example .env
 # 务必修改 .env 中的数据库密码和 JWT_SECRET
+
+[简体中文](README.md) | [English](README.en.md)
 docker compose up --build
 ```
 
