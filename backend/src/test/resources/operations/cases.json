@@ -1,0 +1,53 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "slippageDays": "#3",
+      "remainingBufferDays": "#2",
+      "capacityHours": "#96"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "forecastDue": "2026-11-07"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "slippageDays": "#6"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "remainingHours": "97"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "workloadShortfallHours": "#1"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "forecastDue": "2026-11-01"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "workloadShortfallHours": "#8"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "forecastDue": "2026-10-22",
+      "remainingHours": "0"
+    },
+    "expected": {
+      "decision": "PASS",
+      "capacityHours": "#0"
+    },
+    "error": false
+  }
+]

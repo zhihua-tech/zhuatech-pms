@@ -1,0 +1,82 @@
+{
+  "slug": "pms",
+  "title": "里程碑缓冲消耗与剩余工作量",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "baselineDue",
+      "label": "基线截止日",
+      "type": "DATE"
+    },
+    {
+      "key": "forecastDue",
+      "label": "最新预测截止日",
+      "type": "DATE"
+    },
+    {
+      "key": "bufferDays",
+      "label": "预留日历天缓冲",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "3650"
+    },
+    {
+      "key": "remainingHours",
+      "label": "剩余工作小时",
+      "type": "NUMBER",
+      "scale": 6,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "dailyCapacity",
+      "label": "每日可用小时",
+      "type": "NUMBER",
+      "scale": 6,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "slippageDays",
+      "label": "预测滑期天数"
+    },
+    {
+      "key": "remainingBufferDays",
+      "label": "剩余缓冲天数"
+    },
+    {
+      "key": "capacityHours",
+      "label": "预测前可用小时"
+    },
+    {
+      "key": "workloadShortfallHours",
+      "label": "剩余工作缺口小时"
+    }
+  ],
+  "description": "根据基线截止、最新预测截止及输入预留缓冲核对滑期，计算核对日后的日历天工作量，不替代原挣值模型。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "baselineDue": "2026-11-01",
+        "forecastDue": "2026-11-04",
+        "bufferDays": "5",
+        "remainingHours": "80",
+        "dailyCapacity": "8"
+      }
+    ]
+  }
+}
