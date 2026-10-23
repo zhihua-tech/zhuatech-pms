@@ -1,0 +1,83 @@
+{
+  "slug": "pms",
+  "title": "项目任务工时与日期预检",
+  "fields": [
+    {
+      "key": "task_no",
+      "label": "任务编号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "project",
+      "label": "项目",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "planned_hours",
+      "label": "计划工时",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "actual_hours",
+      "label": "实际工时",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "start_date",
+      "label": "开始日期",
+      "type": "DATE",
+      "length": 200
+    },
+    {
+      "key": "due_date",
+      "label": "截止日期",
+      "type": "DATE",
+      "length": 200
+    }
+  ],
+  "unique": [
+    [
+      "task_no"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "LE",
+      "args": [
+        "actual_hours",
+        "planned_hours"
+      ],
+      "code": "HOURS_OVERRUN",
+      "message": "实际工时超过本行计划工时",
+      "bad": {
+        "actual_hours": "41"
+      }
+    },
+    {
+      "op": "DATE_LE",
+      "args": [
+        "start_date",
+        "due_date"
+      ],
+      "code": "PROJECT_DATE",
+      "message": "截止日期不得早于开始",
+      "bad": {
+        "due_date": "2026-10-31"
+      }
+    }
+  ],
+  "sampleCsv": "task_no,project,planned_hours,actual_hours,start_date,due_date\nPM-001,PROJ-01,40,35,2026-11-01,2026-11-07\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
